@@ -55,6 +55,6 @@ export class DeviceDetectionService {
     console.log(`%c  Device Type: ${this.deviceType}`, 'background: #C4DFDF;, color: #bada55');
     console.log(`%c   User Agent: ${userAgent}`, 'background: #73A9AD;, color: #bada55');
     console.log(`%c  Platform: ${platform}`, 'background: #C88EA7;, color: #bada55');
-    return this.deviceInfo
+    return this.deviceType
   }
 }

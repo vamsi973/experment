@@ -11,6 +11,8 @@ import { DeviceDetectionService } from './services/device-detection.service';
 })
 export class AppComponent {
   searchList: any;
+  deviceInfo = '';
+  isMobile = false;
   constructor(
     private router: Router,
     private common: CommonService,
@@ -18,8 +20,10 @@ export class AppComponent {
     public deviceDetetect: DeviceDetectionService
   ) {
     this.getIP();
-    this.deviceDetetect.detectDevice();
-    this.deviceDetetect.checkIsMobile();
+    this.deviceInfo = this.deviceDetetect.detectDevice();
+    alert(`device: ${this.deviceInfo}`);
+    this.isMobile = this.deviceDetetect.checkIsMobile();
+    alert(`is it  mobile device: ${this.isMobile}`)
   }
   title = 'test';
   routerNavigateTo(routeTo: string) {
