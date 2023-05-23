@@ -13,6 +13,8 @@ export class AppComponent {
   searchList: any;
   deviceInfo = '';
   isMobile = false;
+  userAgent ='';
+  isIos =false;
   constructor(
     private router: Router,
     private common: CommonService,
@@ -21,9 +23,12 @@ export class AppComponent {
   ) {
     this.getIP();
     this.deviceInfo = this.deviceDetetect.detectDevice();
-    alert(`device: ${this.deviceInfo}`);
+   
     this.isMobile = this.deviceDetetect.checkIsMobile();
-    alert(`is it  mobile device: ${this.isMobile}`)
+    this.isIos = this.deviceDetetect.isIos();
+    
+    this.userAgent =navigator.userAgent;
+  
   }
   title = 'test';
   routerNavigateTo(routeTo: string) {
