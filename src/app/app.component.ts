@@ -15,6 +15,7 @@ export class AppComponent {
   isMobile = false;
   userAgent ='';
   isIos =false;
+  maxtouchPoints:any;
   constructor(
     private router: Router,
     private common: CommonService,
@@ -28,6 +29,7 @@ export class AppComponent {
     this.isIos = this.deviceDetetect.isIos();
     
     this.userAgent =navigator.userAgent;
+    this.maxtouchPoints =navigator.maxTouchPoints;
   
   }
   title = 'test';
