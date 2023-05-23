@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonService } from './services/common.service';
+import { SearchService } from './services/search.service';
+import { DeviceDetectionService } from './services/device-detection.service';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +10,16 @@ import { CommonService } from './services/common.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  searchList: any;
   constructor(
     private router: Router,
-    private common: CommonService
+    private common: CommonService,
+    private searchService: SearchService,
+    public deviceDetetect: DeviceDetectionService
   ) {
     this.getIP();
+    this.deviceDetetect.detectDevice();
+    this.deviceDetetect.checkIsMobile();
   }
   title = 'test';
   routerNavigateTo(routeTo: string) {
@@ -27,8 +34,8 @@ export class AppComponent {
       "firstName": "Andreas",
       "lastName": "Wunder",
       "street": "",
-      "zipCode": "32839",
-      "city": "Wunder",
+      "zipCode": "73249",
+      "city": "Berghof",
       "country": "DE",
       "locale": "de",
       "currencyCode": "EUR",
@@ -37,23 +44,32 @@ export class AppComponent {
       "options": [],
       "hwid": "ONH000000009"
     };
-    let keck= {
+    let keck = {
       "liters": 2850,
       "firstName": "Erika",
       "lastName": "Stucke ",
       "street": "Mündener Str. 6",
-      "zipCode": "34399",
+      "zipCode": "31073",
       "city": "Wesertal / Oedelsheim",
       "country": "DE",
       "locale": "de",
       "currencyCode": "EUR",
-      "productCode": "1",
+      "productCode": "10",
       "customerGroupCode": "",
       "options": [],
       "hwid": "ON9334034524"
     }
     this.common.getPrices(keck).subscribe(data => {
       console.log(data);
+    })
+  }
+
+  search(eve: any) {
+    this.searchService.search({ term: eve.target.value }).subscribe((data): any => {
+      console.log(data, 64);
+      if (data.success) {
+        this.searchList = data.data;
+      }
     })
   }
 }

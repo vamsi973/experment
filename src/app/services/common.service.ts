@@ -22,12 +22,20 @@ export class CommonService {
   getIP() {
     return this.http.get('https://api.ipify.org/?format=json')
   }
-  getPrices(dat: any): Observable<any> {
-    let authHeader = new HttpHeaders();
-    // authHeader = authHeader.set('access_token', "fc1ccead23488a23220ffd43afa4157155de4b18");
-    authHeader = authHeader.set('access_token', "cd9723145db3ed9b1ee22e57738706b5242453a4");
+  getPrices(data: any): Observable<any> {
+    let authHeader = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded',
+      Accept: '*/*',
+    });
+    // let authHeader = new HttpHeaders();
+    const encodedData = Object.keys(data).map((key) => {
+      return encodeURIComponent(key) + '=' + encodeURIComponent(data[key]);
+    }).join('&');
+
+    // authHeader = authHeader.set('access_token', "2005f6190b01a028c5b274dc520e53d3c1892f05"); //aupris
+    authHeader = authHeader.set('access_token', "87657b7f2c154907870f6c81361800772bab4be6");//keck
     authHeader = authHeader.set('grant_type', "pricing");
     // return this.http.post('https://api.aupris.com/oauth/calculations/price', dat, { headers: authHeader })
-    return this.http.post('http://localhost:3000/oauth/calculations/price', dat, { headers: authHeader })
+    return this.http.post('http://localhost:3000/oauth/calculations/price', encodedData, { headers: authHeader })
   }
 }

@@ -1,0 +1,24 @@
+textarea {
+    resize: none;
+    /* border: none; */
+}
+
+.search_center {
+    display: flex;
+    justify-content: center;
+}
+.search_outer{
+    /* border: 1px solid black; */
+    z-index: 3;
+}
+
+.display_card{
+    /* display: inline-block; */
+    background-color: aqua;
+    margin-bottom: 2px;
+    /* width: fit-content; */
+}
+.search_result_outer{
+    /* display: flex; */
+    justify-content: center ;
+}
