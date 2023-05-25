@@ -13,24 +13,39 @@ export class AppComponent {
   searchList: any;
   deviceInfo = '';
   isMobile = false;
-  userAgent ='';
-  isIos =false;
-  maxtouchPoints:any;
+  userAgent = '';
+  isIos = false;
+  isAndroid = false;
+  maxtouchPoints: any;
   constructor(
     private router: Router,
     private common: CommonService,
     private searchService: SearchService,
     public deviceDetetect: DeviceDetectionService
   ) {
+    if (this.deviceDetetect.isAndroid() && this.deviceDetetect.checkIsMobile()) {
+      alert("android");
+      let url = 'https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf';
+      // window.location.href = 'https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf';
+      window.location.replace(url)
+    } else if (this.deviceDetetect.isIos() && this.deviceDetetect.checkIsMobile()) {
+      alert("ios");
+      let url ='https://apps.apple.com/in/app/subway-surfers/id512939461';
+      window.location.replace(url)
+      // window.location.href = 'https://apps.apple.com/in/app/subway-surfers/id512939461';
+    } else{
+      alert("Desktop");
+    }
     this.getIP();
     this.deviceInfo = this.deviceDetetect.detectDevice();
-   
+
     this.isMobile = this.deviceDetetect.checkIsMobile();
     this.isIos = this.deviceDetetect.isIos();
-    
-    this.userAgent =navigator.userAgent;
-    this.maxtouchPoints =navigator.maxTouchPoints;
-  
+    this.isAndroid = this.deviceDetetect.isIos();
+
+    this.userAgent = navigator.userAgent;
+    this.maxtouchPoints = navigator.maxTouchPoints;
+
   }
   title = 'test';
   routerNavigateTo(routeTo: string) {

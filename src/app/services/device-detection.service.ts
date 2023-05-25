@@ -15,7 +15,7 @@ export class DeviceDetectionService {
     ) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   }
 
-
+  
   isIos() {
     let objAgent = navigator.userAgent;
     const iPadOS13Up = navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
@@ -23,6 +23,7 @@ export class DeviceDetectionService {
     let objOffsetVersion;
     if ((objOffsetVersion = objAgent.indexOf("Safari")) != -1) {
       objfullVersion = objAgent.substring(objOffsetVersion + 7, objOffsetVersion + 13);
+      console.log(objfullVersion)
       if ((objOffsetVersion = objAgent.indexOf("Version")) != -1)
         objfullVersion = objAgent.substring(objOffsetVersion + 8, objOffsetVersion + 14);
     }
@@ -56,5 +57,10 @@ export class DeviceDetectionService {
     console.log(`%c   User Agent: ${userAgent}`, 'background: #73A9AD;, color: #bada55');
     console.log(`%c  Platform: ${platform}`, 'background: #C88EA7;, color: #bada55');
     return this.deviceType
+  }
+
+  isAndroid(): boolean {
+    const userAgent = navigator.userAgent;
+    return userAgent.includes('Android');
   }
 }
