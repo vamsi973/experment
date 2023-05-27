@@ -27,14 +27,14 @@ export class AppComponent {
       alert("android");
       let url = 'https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf';
       // window.location.href = 'https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf';
-      window.location.replace(url)
+      // window.location.replace(url)
     } else if (this.deviceDetetect.isIos() && this.deviceDetetect.checkIsMobile()) {
       alert("ios");
       let url ='https://apps.apple.com/in/app/subway-surfers/id512939461';
-      window.location.replace(url)
+      // window.location.replace(url)
       // window.location.href = 'https://apps.apple.com/in/app/subway-surfers/id512939461';
     } else{
-      alert("Desktop");
+      // alert("Desktop");
     }
     this.getIP();
     this.deviceInfo = this.deviceDetetect.detectDevice();
