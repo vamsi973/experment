@@ -9,6 +9,9 @@ import { ThreeComponent } from './three/three.component';
 import { FourComponent } from './four/four.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './accounts/register/register.component';
+import { LoginComponent } from './accounts/login/login.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     OneComponent,
     TwoComponent,
     ThreeComponent,
-    FourComponent
+    FourComponent,
+    RegisterComponent,
+  LoginComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
