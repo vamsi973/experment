@@ -14,6 +14,7 @@ import { LoginComponent } from './accounts/login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { Http } from './http.interceptor';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,22 +23,23 @@ import { Http } from './http.interceptor';
     ThreeComponent,
     FourComponent,
     RegisterComponent,
-  LoginComponent,
-    HomepageComponent
+    LoginComponent,
+    HomepageComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,ReactiveFormsModule
+    FormsModule, ReactiveFormsModule
   ],
   providers: [
     {
-     provide: HTTP_INTERCEPTORS,
-     useClass: Http,
-     multi: true
+      provide: HTTP_INTERCEPTORS,
+      useClass: Http,
+      multi: true
     }
-   ],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

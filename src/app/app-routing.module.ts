@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'four', component: FourComponent },
   { path: 'account/login', component: LoginComponent },
   { path: 'account/register', component: RegisterComponent },
+  { path: 'module', loadChildren: () => import('./modulename/modulename.module').then(m => m.ModulenameModule) },
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

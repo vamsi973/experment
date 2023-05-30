@@ -1,6 +1,12 @@
 <div class="p-4">
     <div class="container">
-        <h1>Hi {{user?.firstName}}!</h1>
+        <h1>Hi {{user?.name}}!</h1>
         <p>You're logged in with Angular!!</p>
+        <div class="rightAlign">
+            <button  (click)="navigateToQrCode()">
+                Create QR Code
+            </button>
+        </div>
     </div>
+
 </div>
