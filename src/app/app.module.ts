@@ -7,11 +7,12 @@ import { OneComponent } from './one/one.component';
 import { TwoComponent } from './two/two.component';
 import { ThreeComponent } from './three/three.component';
 import { FourComponent } from './four/four.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './accounts/register/register.component';
 import { LoginComponent } from './accounts/login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { Http } from './http.interceptor';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,13 @@ import { HomepageComponent } from './homepage/homepage.component';
     HttpClientModule,
     FormsModule,ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+     provide: HTTP_INTERCEPTORS,
+     useClass: Http,
+     multi: true
+    }
+   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

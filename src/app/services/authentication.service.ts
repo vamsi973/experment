@@ -50,7 +50,8 @@ export class AuthenticationService {
     return this.userSubject.value;
   }
   getAll() {
-    return this.http.get<User[]>(`${this.baseUrl}/users`);
+    // return this.http.get<User[]>(`${this.baseUrl}/users`);
+    return this.http.get<any>(`${this.baseUrl}/users`);
   }
 
   getById(id: string) {
