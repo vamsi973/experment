@@ -1,23 +1,21 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { QrscannerService } from '../../services/qrscanner.service';
-import { AuthenticationService } from 'src/app/services/authentication.service';
-import { AlertService } from 'src/app/services/alert.service';
+import { AuthenticationService } from '../services/authentication.service';
+
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-test',
+  templateUrl: './test.component.html',
+  styleUrls: ['./test.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class TestComponent implements OnInit {
 
   form: FormGroup;
   errorText: string = '';
   imageData: string = '';
   constructor(private fb: FormBuilder,
     private http: HttpClient,
-    private auth: AuthenticationService,
-    private alertService : AlertService
+    private auth: AuthenticationService
   ) { }
 
   ngOnInit(): void {
@@ -26,13 +24,11 @@ export class RegisterComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
       password: ['', Validators.required],
-      // qrtext: ['']
+      qrtext: ['']
     });
   }
 
   submitForm() {
-    // reset alerts on submit
-    this.alertService.clear();
     if (this.form.valid) {
       const formData = this.form.value;
       // Call the API service method to create the menu
@@ -47,8 +43,6 @@ export class RegisterComponent implements OnInit {
           // Handle error response
           console.error(error);
           // Show an error message or perform any other error handling
-          
-          this.alertService.error(error);
         }
       );
 

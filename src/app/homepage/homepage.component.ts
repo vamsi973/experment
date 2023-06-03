@@ -23,7 +23,7 @@ export class HomepageComponent implements OnInit {
   }
   navigateToQrCode() {
     console.log("navigate to qr code");
-    this.router.navigate(['/module/qrcode']);
+    this.router.navigate(['/qrCode']);
 
   }
 }

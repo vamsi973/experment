@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthenticationService {
+  
   private userSubject: BehaviorSubject<User>;
   public user: Observable<User>;
 
@@ -41,7 +42,8 @@ export class AuthenticationService {
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('user');
-    // this.userSubject.next(null);
+    this.userSubject.unsubscribe();
+    window.location.reload();
     this.router.navigate(['/login']);
   }
 

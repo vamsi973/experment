@@ -13,6 +13,8 @@ import { RegisterComponent } from './accounts/register/register.component';
 import { LoginComponent } from './accounts/login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { Http } from './http.interceptor';
+import { TestComponent } from './test/test.component';
+import { AlertComponent } from './components/alert/alert.component';
 
 
 @NgModule({
@@ -25,6 +27,8 @@ import { Http } from './http.interceptor';
     RegisterComponent,
     LoginComponent,
     HomepageComponent,
+    TestComponent,
+    AlertComponent,
 
   ],
   imports: [

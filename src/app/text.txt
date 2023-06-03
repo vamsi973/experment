@@ -1,2 +1,2 @@
 Create a new Angular module
-ng generate module modulename --route module --module app.module
+ng generate module qrCode --route qrCode --module app.module

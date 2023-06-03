@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { LoaderService } from 'src/app/services/loader.service';
+import { AlertService } from 'src/app/services/alert.service';
 
 @Component({
   selector: 'app-login',
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private auth: AuthenticationService,
+    private alertService: AlertService,
     private loader: LoaderService
 
   ) {
@@ -35,7 +37,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      userid: ['', Validators.required],
+      userId: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
@@ -45,14 +47,13 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
-
-
+    // reset alerts on submit
+    this.alertService.clear();
     // stop here if form is invalid
     if (this.form.invalid) {
       return;
     }
-
+    console.log(this.form.value, 52)
     this.loading = true;
     this.auth.login(this.form.value)
       .pipe(first())
@@ -63,7 +64,8 @@ export class LoginComponent implements OnInit {
           this.router.navigateByUrl(returnUrl);
         },
         error: error => {
-          // this.alertService.error(error);
+          console.log(error, 65)
+          this.alertService.error(error);
           this.loading = false;
         }
       });

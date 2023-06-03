@@ -5,11 +5,15 @@ import { SearchService } from './services/search.service';
 import { DeviceDetectionService } from './services/device-detection.service';
 import { AuthenticationService } from './services/authentication.service';
 import { User } from './models/user';
+// import { AlertComponent } from './_components/alert.component';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  
+
 })
 export class AppComponent {
   user?: User | null;
@@ -25,7 +29,7 @@ export class AppComponent {
     private common: CommonService,
     private searchService: SearchService,
     public deviceDetetect: DeviceDetectionService,
-    private auth :AuthenticationService
+    private auth: AuthenticationService
   ) {
     this.auth.user.subscribe(x => this.user = x);
     if (this.deviceDetetect.isAndroid() && this.deviceDetetect.checkIsMobile()) {
@@ -35,10 +39,10 @@ export class AppComponent {
       // window.location.replace(url)
     } else if (this.deviceDetetect.isIos() && this.deviceDetetect.checkIsMobile()) {
       alert("ios");
-      let url ='https://apps.apple.com/in/app/subway-surfers/id512939461';
+      let url = 'https://apps.apple.com/in/app/subway-surfers/id512939461';
       // window.location.replace(url)
       // window.location.href = 'https://apps.apple.com/in/app/subway-surfers/id512939461';
-    } else{
+    } else {
       // alert("Desktop");
     }
     this.getIP();
@@ -103,7 +107,7 @@ export class AppComponent {
       }
     })
   }
-  logout(){
+  logout() {
     this.auth.logout()
   }
 }

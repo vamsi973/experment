@@ -1,1 +1,41 @@
-<p>qr-generate works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-7 col-lg-8">
+            <h2>QR Genarate</h2>
+            <form [formGroup]="qrForm" (ngSubmit)="generateQRCode()">
+                <div class="form-group mt-3">
+                    <label class="mb-2" for="qrType">Choose:</label>
+
+                    <select class="form-control" id="qrType" formControlName="selectedType">
+                        <option *ngFor="let option of qrOptions" [value]="option.value">{{ option.label }}</option>
+                    </select>
+                    <!-- <div *ngIf="form.controls['qrFor'].touched && form.controls['qrFor'].errors?.['required']"
+                        class="error">
+                        Email is required.
+                    </div>
+                    <div *ngIf="form.controls['qrFor'].touched && form.controls['qrFor'].errors?.['email']"
+                        class="error">
+                        Invalid email format.
+                    </div> -->
+                </div>
+                <div class="form-group mt-3">
+                    <label class="mb-2" for="email">url:</label>
+                    <input class="form-control" id="email" type="url" formControlName="url" />
+                    <div *ngIf="qrForm.controls['url'].touched && qrForm.controls['url'].errors?.['required']"
+                        class="error">
+                        Email is required.
+                    </div>
+                    <div *ngIf="qrForm.controls['url'].touched && qrForm.controls['url'].errors?.['email']"
+                        class="error">
+                        Invalid email format.
+                    </div>
+                </div>
+                <button class="btn btn-success btn-lg w-100 mt-4" type="submit">Login</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+<div class="mt-4">
+    <img *ngIf="generatedQRCode" [src]="generatedQRCode" alt="QR Code">
+</div>
