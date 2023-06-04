@@ -6,11 +6,12 @@ import { QrCodeComponent } from './qr-code.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared/shared.module';
 import { QrGenerateComponent } from './qr-generate/qr-generate.component';
+import { QrlistComponent } from './qrlist/qrlist.component';
 
 
 @NgModule({
   declarations: [
-    QrCodeComponent, QrGenerateComponent
+    QrCodeComponent, QrGenerateComponent, QrlistComponent
   ],
   imports: [
     CommonModule,SharedModule,

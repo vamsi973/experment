@@ -1,0 +1,7 @@
+<p>qrlist works!</p>
+<div>
+    <ng-container *ngFor="let qrCode of qrList">
+        {{qrCode.category}}
+        <img [src]="qrCode?.qrCode">
+    </ng-container>
+</div>

@@ -6,8 +6,9 @@
                 <div class="form-group mt-3">
                     <label class="mb-2" for="qrType">Choose:</label>
 
-                    <select class="form-control" id="qrType" formControlName="selectedType">
-                        <option *ngFor="let option of qrOptions" [value]="option.value">{{ option.label }}</option>
+                    <select class="form-control" id="qrType" formControlName="selectedType"
+                        (change)="onQRTypeChange($event)">
+                        <option *ngFor="let option of qrOptions" [value]="option?.value">{{ option.label }}</option>
                     </select>
                     <!-- <div *ngIf="form.controls['qrFor'].touched && form.controls['qrFor'].errors?.['required']"
                         class="error">
@@ -18,19 +19,42 @@
                         Invalid email format.
                     </div> -->
                 </div>
-                <div class="form-group mt-3">
-                    <label class="mb-2" for="email">url:</label>
-                    <input class="form-control" id="email" type="url" formControlName="url" />
-                    <div *ngIf="qrForm.controls['url'].touched && qrForm.controls['url'].errors?.['required']"
-                        class="error">
-                        Email is required.
+                <div *ngIf="qrForm.get('selectedType')?.value === 'maps'">
+                    <div class="form-group">
+                      <label for="location">Location:</label>
+                      <input type="text" class="form-control" id="location" formControlName="location">
                     </div>
-                    <div *ngIf="qrForm.controls['url'].touched && qrForm.controls['url'].errors?.['email']"
-                        class="error">
-                        Invalid email format.
+                  </div>
+                
+                  <div *ngIf="qrForm.get('selectedType')?.value === 'url' || qrForm.get('selectedType')?.value === 'shorturl'">
+                    <div class="form-group">
+                      <label for="url">URL:</label>
+                      <input type="text" class="form-control" id="url" formControlName="url">
                     </div>
-                </div>
-                <button class="btn btn-success btn-lg w-100 mt-4" type="submit">Login</button>
+                  </div>
+                
+                  <div *ngIf="qrForm.get('selectedType')?.value === 'StoreUrl'">
+                    <div class="form-group">
+                      <label for="appstoreUrl">App Store URL:</label>
+                      <input type="text" class="form-control" id="appstoreUrl" formControlName="appstoreUrl">
+                    </div>
+                    <div class="form-group">
+                      <label for="playstoreUrl">Play Store URL:</label>
+                      <input type="text" class="form-control" id="playstoreUrl" formControlName="playstoreUrl">
+                    </div>
+                  </div>
+                
+                  <div *ngIf="qrForm.get('selectedType')?.value === 'deeplink'">
+                    <div class="form-group">
+                      <label for="playstoreShortUrl">Play Store Short URL:</label>
+                      <input type="text" class="form-control" id="playstoreShortUrl" formControlName="playstoreShortUrl">
+                    </div>
+                    <div class="form-group">
+                      <label for="appstoreShortUrl">App Store Short URL:</label>
+                      <input type="text" class="form-control" id="appstoreShortUrl" formControlName="appstoreShortUrl">
+                    </div>
+                  </div>
+                <button class="btn btn-success btn-lg w-100 mt-4" type="submit">Submit</button>
             </form>
         </div>
 

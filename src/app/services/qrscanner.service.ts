@@ -13,6 +13,7 @@ export class QrscannerService {
     return this.http.post<any>(`${this.baseUrl}/addQr`, data);
   }
   getQrs(): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/menus`);
+    return this.http.get<any>(`${this.baseUrl}/list`);
   }
+  
 }
