@@ -1,7 +1,7 @@
 <div class="p-4">
     <div class="container">
         <h1>Users</h1>
-        <a routerLink="add" class="btn btn-sm btn-success mb-2">Add User</a>
+        <a routerLink="add" class="btn btn-sm btn-success mb-2" (click)="addUser()">Add User</a>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -19,7 +19,7 @@
                     
                     <td style="white-space: nowrap">
                         <!-- <a routerLink="edit/{{user.id}}" class="btn btn-sm btn-primary me-1">Edit</a> -->
-                        <button (click)="deleteUser(user.id)" class="btn btn-sm btn-danger" style="width: 58px" [disabled]="user.isDeleting">
+                        <button (click)="deleteUser(user._id)" class="btn btn-sm btn-danger" style="width: 58px" [disabled]="user.isDeleting">
                             <span *ngIf="user.isDeleting" class="spinner-border spinner-border-sm"></span>
                             <span *ngIf="!user.isDeleting">Delete</span>
                         </button>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { QrscannerService } from '../../services/qrscanner.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-qr-generate',
@@ -29,11 +30,13 @@ export class QrGenerateComponent implements OnInit {
   loading = false;
   submitted = false;
   constructor(
+    private router: Router,
     private formBuilder: FormBuilder,
-    private qrScanner: QrscannerService
+    private qrScanner: QrscannerService,
   ) {
     this.qrForm = this.formBuilder.group({
       selectedType: ['', Validators.required],
+      name: ['', Validators.required],
       location: ['', Validators.required],
       url: ['', Validators.required],
       appstoreUrl: ['', Validators.required],
@@ -50,8 +53,8 @@ export class QrGenerateComponent implements OnInit {
 
   generateQRCode() {
     const data = 'Your data based on the selected type'; // Modify this with your data
-    console.log("value is",this.qrForm.value);
-    console.log("form is",this.qrForm);
+    console.log("value is", this.qrForm.value);
+    console.log("form is", this.qrForm);
     console.log(this.qrForm.invalid);
     this.submitted = true;
 
@@ -63,6 +66,7 @@ export class QrGenerateComponent implements OnInit {
     this.qrScanner.addQr(this.qrForm.value).subscribe(data => {
       console.log(data, 455);
       this.generatedQRCode = data['qrCode'];
+      this.router.navigate(['/qrCode/list']);
     })
   }
 
@@ -85,7 +89,7 @@ export class QrGenerateComponent implements OnInit {
       if (item == inputField) {
         this.qrForm.get(item)?.setValidators(Validators.required);
         this.qrForm.get(item)?.updateValueAndValidity();
-      }else{
+      } else {
         this.qrForm.get(item)?.setValidators(null);
         this.qrForm.get(item)?.updateValueAndValidity();
       }

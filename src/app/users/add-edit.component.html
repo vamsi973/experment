@@ -20,10 +20,10 @@
             </div>
             <div class="row">
                 <div class="mb-3 col">
-                    <label class="form-label">Username</label>
-                    <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['username'].errors }" />
-                    <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
-                        <div *ngIf="f['username'].errors['required']">Username is required</div>
+                    <label class="form-label">email</label>
+                    <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['username'].errors }" />
+                    <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                        <div *ngIf="f['email'].errors['required']">email is required</div>
                     </div>
                 </div>
                 <div class="mb-3 col">

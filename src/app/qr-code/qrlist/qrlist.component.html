@@ -1,7 +1,27 @@
-<p>qrlist works!</p>
 <div>
-    <ng-container *ngFor="let qrCode of qrList">
-        {{qrCode.category}}
-        <img [src]="qrCode?.qrCode">
-    </ng-container>
+    <div class="container">
+        <h2>QR Code Information</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>QR Image</th>
+                        <th>QR Name</th>
+                        <th>Created Date</th>
+                        <th>QR Category</th>
+                    </tr>
+                </thead>
+                <ng-container *ngFor="let qrCode of qrList">
+                    <tbody>
+                        <tr class="qr-row">
+                            <td><img [src]="qrCode?.qrCode" alt="QR Image 1" class="img-fluid"></td>
+                            <td>{{qrCode.name}}</td>
+                            <td>{{qrCode.created | date: 'dd/MM/yyyy'}}</td>
+                            <td>{{qrCode.category}}</td>
+                        </tr>
+                    </tbody>
+                </ng-container>
+            </table>
+        </div>
+    </div>
 </div>
