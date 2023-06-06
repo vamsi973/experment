@@ -15,5 +15,9 @@ export class QrscannerService {
   getQrs(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/list`);
   }
-  
+
+  redirectUrl(id: any): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/url/${id}`);
+  }
+
 }

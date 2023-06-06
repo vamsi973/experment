@@ -15,6 +15,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { Http } from './http.interceptor';
 import { TestComponent } from './test/test.component';
 import { AlertComponent } from './components/alert/alert.component';
+import { RedirectComponent } from './redirect/redirect.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { AlertComponent } from './components/alert/alert.component';
     HomepageComponent,
     TestComponent,
     AlertComponent,
+    RedirectComponent,
 
   ],
   imports: [
