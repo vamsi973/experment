@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  server: 'http://localhost:3001/api'
+  server: 'https://app.koyeb.com/api'
 };
