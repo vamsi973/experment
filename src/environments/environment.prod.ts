@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  server: 'https://app.koyeb.com/api'
+  server: 'https://scan-vamsi973.koyeb.app/api'
 };

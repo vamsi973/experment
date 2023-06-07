@@ -22,7 +22,9 @@ export class Http implements HttpInterceptor {
     this.loader.show();
     const newHeaders = new HttpHeaders({
       "Content-Type": "application/json",
-      "authorization": token
+      "authorization": token,
+      "Access-Control-Allow-Origin": '*'
+
     });
     //clone request and change header
     let clone = request.clone({ headers: newHeaders });
