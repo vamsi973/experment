@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true,
-  // server: 'http://localhost:3001/api'
-  server: 'https://scan-vamsi973.koyeb.app/api'
+  production: false,
+  server: 'http://localhost:3001/api'
+  // server: 'https://scan-vamsi973.koyeb.app/api'
 };
 
 /*

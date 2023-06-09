@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 import { NgClass, NgIf } from '@angular/common';
 import { Router, ActivatedRoute, RouterLink } from '@angular/router';
@@ -26,7 +27,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private auth: AuthenticationService,
     private alertService: AlertService,
-    private loader: LoaderService
+    private loader: LoaderService,
+    private titleService: Title
 
   ) {
     // redirect to home if already logged in
@@ -36,6 +38,8 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.titleService.setTitle('login-Qrscan');
+
     this.form = this.formBuilder.group({
       userId: ['', Validators.required],
       password: ['', Validators.required]

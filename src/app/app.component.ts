@@ -57,7 +57,7 @@ export class AppComponent {
     this.maxtouchPoints = navigator.maxTouchPoints;
 
     this.router.events.subscribe((event) => {
-      console.log('event', event, 611);
+      
 
       if (event instanceof NavigationEnd && event.url === '/') {
         // Redirect to the partial URL
@@ -72,7 +72,7 @@ export class AppComponent {
   }
   getIP() {
     this.common.getIP().subscribe((data) => {
-      console.log(data);
+      // console.log(data);
     });
     // let aupris = {
     //   "liters": 3000,

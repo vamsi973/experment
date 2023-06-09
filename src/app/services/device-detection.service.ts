@@ -23,14 +23,14 @@ export class DeviceDetectionService {
     let objOffsetVersion;
     if ((objOffsetVersion = objAgent.indexOf("Safari")) != -1) {
       objfullVersion = objAgent.substring(objOffsetVersion + 7, objOffsetVersion + 13);
-      console.log(objfullVersion)
+      
       if ((objOffsetVersion = objAgent.indexOf("Version")) != -1)
         objfullVersion = objAgent.substring(objOffsetVersion + 8, objOffsetVersion + 14);
     }
     if (/iphone|ipad|ipod|ios/i.test(
       navigator.userAgent.toLowerCase()
     ) || iPadOS13Up) {
-      console.log(console.log(`%c  ios version: ${parseFloat(objfullVersion)}`, 'background: #C88EA7;, color: #bada55'))
+    
     }
     return /iphone|ipad|ipod|ios/i.test(
       navigator.userAgent.toLowerCase()
@@ -53,9 +53,9 @@ export class DeviceDetectionService {
     } else {
       this.deviceType = 'Unknown';
     }
-    console.log(`%c  Device Type: ${this.deviceType}`, 'background: #C4DFDF;, color: #bada55');
-    console.log(`%c   User Agent: ${userAgent}`, 'background: #73A9AD;, color: #bada55');
-    console.log(`%c  Platform: ${platform}`, 'background: #C88EA7;, color: #bada55');
+    // console.log(`%c  Device Type: ${this.deviceType}`, 'background: #C4DFDF;, color: #bada55');
+    // console.log(`%c   User Agent: ${userAgent}`, 'background: #73A9AD;, color: #bada55');
+    // console.log(`%c  Platform: ${platform}`, 'background: #C88EA7;, color: #bada55');
     return this.deviceType
   }
 

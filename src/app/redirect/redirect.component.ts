@@ -24,8 +24,9 @@ export class RedirectComponent implements OnInit {
     const currentUrl = this.router.url;
     this.route.params.subscribe(params => {
       const randomString = params['randomString'];
+      console.log(randomString,277);
+      
       this.qrScanner.redirectUrl(randomString).subscribe((data) => {
-        console.log(data,1292)
         if (data.category == 'StoreUrl') {
           // requestedAppStoreUrl
           // requestedpPlayStoreUrl

@@ -9,6 +9,7 @@ const routes: Routes = [
   // { path: '', component: QrCodeComponent },
   { path: '', component: QrGenerateComponent , canActivate: [AuthguadrdGuard] },
   { path: 'list', component: QrlistComponent , canActivate: [AuthguadrdGuard] },
+  { path: 'create', component: QrlistComponent , canActivate: [AuthguadrdGuard] },
 ];
 
 @NgModule({

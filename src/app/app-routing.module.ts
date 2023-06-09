@@ -14,7 +14,7 @@ import { RedirectComponent } from './redirect/redirect.component';
 const usersRoutes = () => import('./users/users.routes').then(x => x.USERS_ROUTES);
 const routes: Routes = [
   { path: '', component: HomepageComponent, canActivate: [AuthguadrdGuard] },
-  { path: ':randomString', component: RedirectComponent },
+  { path: 'r/:randomString', component: RedirectComponent },
   { path: 'users', loadChildren: usersRoutes, canActivate: [AuthguadrdGuard] },
   { path: 'one', component: OneComponent },
   { path: 'two', component: TwoComponent },

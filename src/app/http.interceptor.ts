@@ -18,7 +18,7 @@ export class Http implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     let userData = this.auth.userValue;
     let token: string = userData?.token || '';
-    console.log(userData, 20)
+    // console.log(userData, 20)
     this.loader.show();
     const newHeaders = new HttpHeaders({
       "Content-Type": "application/json",
