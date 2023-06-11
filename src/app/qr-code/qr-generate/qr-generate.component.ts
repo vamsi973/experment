@@ -63,7 +63,17 @@ export class QrGenerateComponent implements OnInit {
       return;
     }
 
-    this.qrScanner.addQr(this.qrForm.value).subscribe(data => {
+    let bodyOption = {
+      ...this.qrForm.value, ...{
+        "color": {
+          "dark": "#ff3503",
+          "light": "#ffffff"
+        },
+        mask: 0
+      }
+    }
+
+    this.qrScanner.addQr(bodyOption).subscribe(data => {
       console.log(data, 455);
       this.generatedQRCode = data['qrCode'];
       this.router.navigate(['/qrCode/list']);
