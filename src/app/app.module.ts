@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,8 @@ import { Http } from './http.interceptor';
 import { TestComponent } from './test/test.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { RedirectComponent } from './redirect/redirect.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
+import { ChatMessageComponent } from './chat-message/chat-message.component';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import { RedirectComponent } from './redirect/redirect.component';
     TestComponent,
     AlertComponent,
     RedirectComponent,
+    ChatbotComponent,
+    ChatMessageComponent,
 
   ],
   imports: [
@@ -38,6 +42,9 @@ import { RedirectComponent } from './redirect/redirect.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule, ReactiveFormsModule
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA // Add this line
   ],
   providers: [
     {
