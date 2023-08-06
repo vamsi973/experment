@@ -72,10 +72,12 @@ export class DeviceDetectionService {
     return this.http.get('https://api.ipify.org/?format=json')
   }
   getDetailedIP() {
-    return this.http.get('http://ip-api.com/json/?fields=61439')
+    
+    return this.http.get('https://ip-api.com/json/?fields=61439')
   }
 
   insertData(data: any) {
+
     return this.http.post(this.url + '/device', data)
   }
 }
