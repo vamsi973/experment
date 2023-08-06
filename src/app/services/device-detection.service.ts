@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class DeviceDetectionService {
-
+  url: string = environment.server;
   deviceType: string = '';
   deviceInfo: string = '';
-  constructor() { }
+  constructor(
+    private http: HttpClient,
+
+  ) { }
 
   checkIsMobile(): boolean {
     return /android|webos|iphone|ipad|ipod|blackberry|windows phone/.test(
@@ -15,7 +19,7 @@ export class DeviceDetectionService {
     ) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   }
 
-  
+
   isIos() {
     let objAgent = navigator.userAgent;
     const iPadOS13Up = navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
@@ -23,14 +27,14 @@ export class DeviceDetectionService {
     let objOffsetVersion;
     if ((objOffsetVersion = objAgent.indexOf("Safari")) != -1) {
       objfullVersion = objAgent.substring(objOffsetVersion + 7, objOffsetVersion + 13);
-      
+
       if ((objOffsetVersion = objAgent.indexOf("Version")) != -1)
         objfullVersion = objAgent.substring(objOffsetVersion + 8, objOffsetVersion + 14);
     }
     if (/iphone|ipad|ipod|ios/i.test(
       navigator.userAgent.toLowerCase()
     ) || iPadOS13Up) {
-    
+
     }
     return /iphone|ipad|ipod|ios/i.test(
       navigator.userAgent.toLowerCase()
@@ -62,5 +66,16 @@ export class DeviceDetectionService {
   isAndroid(): boolean {
     const userAgent = navigator.userAgent;
     return userAgent.includes('Android');
+  }
+
+  getIP() {
+    return this.http.get('https://api.ipify.org/?format=json')
+  }
+  getDetailedIP() {
+    return this.http.get('http://ip-api.com/json/?fields=61439')
+  }
+
+  insertData(data: any) {
+    return this.http.post(this.url + '/device', data)
   }
 }
