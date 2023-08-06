@@ -69,10 +69,10 @@ export class DeviceDetectionService {
   }
 
   getIP() {
+    const http = new HttpHeaders();
     return this.http.get('https://api.ipify.org/?format=json')
   }
   getDetailedIP() {
-    
     return this.http.get('http://ip-api.com/json/?fields=61439')
   }
 

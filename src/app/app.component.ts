@@ -74,7 +74,7 @@ export class AppComponent {
   }
   getIP() {
     this.common.getIP().subscribe((data) => {
-      // console.log(data);
+      console.log(data);
     });
   }
 
