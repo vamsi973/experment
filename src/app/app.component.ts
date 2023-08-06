@@ -48,7 +48,7 @@ export class AppComponent {
     } else {
       // alert("Desktop");
     }
-    this.getIP();
+    // this.getIP();
     this.deviceInfo = this.deviceDetailed.detectDevice();
 
     this.isMobile = this.deviceDetailed.checkIsMobile();

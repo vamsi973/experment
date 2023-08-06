@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpBackend, HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
@@ -8,10 +8,15 @@ export class DeviceDetectionService {
   url: string = environment.server;
   deviceType: string = '';
   deviceInfo: string = '';
+  private httpClientBackend: HttpClient;
+  
   constructor(
+    httpBackend: HttpBackend,
     private http: HttpClient,
 
-  ) { }
+  ) {
+    this.httpClientBackend = new HttpClient(httpBackend);
+   }
 
   checkIsMobile(): boolean {
     return /android|webos|iphone|ipad|ipod|blackberry|windows phone/.test(
@@ -68,16 +73,14 @@ export class DeviceDetectionService {
     return userAgent.includes('Android');
   }
 
-  getIP() {
-    const http = new HttpHeaders();
-    return this.http.get('https://api.ipify.org/?format=json')
+  getIP() { 
+    return this.httpClientBackend.get('https://api.ipify.org/?format=json')
   }
   getDetailedIP() {
     return this.http.get('http://ip-api.com/json/?fields=61439')
   }
 
   insertData(data: any) {
-
     return this.http.post(this.url + '/device', data)
   }
 }

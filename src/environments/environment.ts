@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  server: 'http://localhost:3001/api'
-  // server: 'https://scan-vamsi973.koyeb.app/api'
+  // server: 'http://localhost:3001/api'
+  server: 'https://scan-vamsi973.koyeb.app/api'
 };
 
 /*
