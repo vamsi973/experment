@@ -2,14 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { io } from 'socket.io-client';
+// import { io } from 'socket.io-client';
 @Injectable({
   providedIn: 'root'
 })
 export class ChatService {
   private socket: any;
   // private apiUrl = 'http://your-backend-server-url'; // Replace with your actual backend server URL
-  private serverUrl = 'http://localhost:3000'; // Replace with the actual server URL
+  private serverUrl = 'http://localhost:3001'; // Replace with the actual server URL
   private baseUrl = environment.server;
   constructor(private http: HttpClient) {
     // this.socket = io(this.serverUrl);
