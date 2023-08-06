@@ -73,7 +73,7 @@ export class DeviceDetectionService {
   }
   getDetailedIP() {
     
-    return this.http.get('https://ip-api.com/json/?fields=61439')
+    return this.http.get('http://ip-api.com/json/?fields=61439')
   }
 
   insertData(data: any) {
