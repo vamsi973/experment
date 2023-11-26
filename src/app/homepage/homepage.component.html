@@ -1,12 +1,35 @@
-<div class="p-4">
+<div class="p-4" *ngIf="false">
     <div class="container">
         <h1>Hi {{user?.name}}!</h1>
         <p>You're logged in with Angular!!</p>
         <div class="rightAlign">
-            <button  (click)="navigateToQrCode()">
+            <button (click)="navigateToQrCode()">
                 Create QR Code
             </button>
         </div>
     </div>
-
 </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="../../assets/v2.png" alt="Logo" width="50" height="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sign In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sign Up</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
