@@ -2,6 +2,17 @@
 
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
+@font-face {
+  font-family: 'IndieFlower';
+  src: url('assets/fonts/IndieFlower-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body{
+  /* font-family: var(--font-IndieFlower); */
+}
+
 .loading {
   position: absolute;
   width: 100%;
@@ -17,6 +28,13 @@
   background-color: rgba(43, 39, 39, 0.616);
 }
 
+:root{
+  --normal-font-size:14px;
+  --smaller-font-size:12px;
+  --h2-font-size:24px;
+  --text-color:red;
+  --font-IndieFlower:'IndieFlower', sans-serif;
+}
 
 .chatbot-container {
   width: 400px;

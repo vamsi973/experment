@@ -11,10 +11,12 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { TestComponent } from './test/test.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { RedirectComponent } from './redirect/redirect.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 
 const usersRoutes = () => import('./users/users.routes').then(x => x.USERS_ROUTES);
 const routes: Routes = [
-  { path: '', component: HomepageComponent, canActivate: [AuthguadrdGuard] },
+  { path: "", component: PortfolioComponent },
+  // { path: '', component: HomepageComponent, canActivate: [AuthguadrdGuard] },
   { path: 'r/:randomString', component: RedirectComponent },
   { path: 'users', loadChildren: usersRoutes, canActivate: [AuthguadrdGuard] },
   { path: 'one', component: OneComponent },
@@ -24,7 +26,7 @@ const routes: Routes = [
   { path: 'account/login', component: LoginComponent },
   { path: 'account/register', component: RegisterComponent },
   { path: 'test', component: TestComponent },
-  
+
   { path: 'alert', component: AlertComponent },
   { path: 'qrCode', loadChildren: () => import('./qr-code/qr-code.module').then(m => m.QrCodeModule), },
 

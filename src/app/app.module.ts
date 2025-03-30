@@ -18,6 +18,7 @@ import { AlertComponent } from './components/alert/alert.component';
 import { RedirectComponent } from './redirect/redirect.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { ChatMessageComponent } from './chat-message/chat-message.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { ChatMessageComponent } from './chat-message/chat-message.component';
     RedirectComponent,
     ChatbotComponent,
     ChatMessageComponent,
+    PortfolioComponent,
 
   ],
   imports: [
